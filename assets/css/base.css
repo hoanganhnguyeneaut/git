@@ -1,0 +1,134 @@
+/*CSS NHỮNG THÀNH PHẦN CHUNG */
+/* NƠI KHAI BÁO BIẾN CSS  */
+:root{
+    --primary-color:#ee4d2d;
+    --white-color: #fff;
+    --black-color:#000;
+    --text-color:#333; /* màu chữ */
+    --boder-color:#dbdbdb;
+}
+/* upline thuộc tính CSS lên tất cả các phần tử HTML được nhúng base.css*/
+*{
+   box-sizing: inherit; /*inherit kế thừa từ thẻ chứa nó*/
+
+}
+html{
+    font-size: 100%;
+    line-height: 16px;
+    font-family: 'Abel';font-size: 22px;
+    box-sizing: border-box;
+}
+
+.grid{
+    width: 1200px;
+    max-width: 100% ;
+    /* với màn hình lớn hơn 1200 thì kích thước tối đa của class grid
+     chỉ là 1200 thôi với màn hình có kích thước nhỏ hơn 1200 khi đó 
+     max width có tác dụng giảm kích thước của grid bằng với kích thước 
+     của màn hình có kích thước nhỏ hơn 1200 */
+     margin: 0 auto;/*Tự động căn giữa khối này khi nằm trong một khối khác*/
+}
+/* trong trường hợp k muốn sử dụng width bằng 1200 thì sẽ thêm class grid__full-width */
+.grid__full-width{
+width: 100%;
+}
+/* những thằng nàm trong class grid__row sẽ nằm cùng trên một hàng ngang 
+bởi vì thuộc tính đisplay bằng flex có trục main asis nằm nagng; flex wwrap  để cho 
+những thằng con tổng độ dài những thằng con vượt quá thằng grid row khi đó nó sẽ bị
+nhảy xuống hàng  */
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/* ANIMATION */
+/* QR code */
+@keyframes fadeIn{
+   from{
+       opacity: 0;
+
+   } 
+   to{
+       opacity: 1;
+
+   }
+}
+
+/* thông báo */
+@keyframes headerNotifyGrowth {
+    from{
+        opacity: 0;
+        transform: scale(0);
+
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* MODAL LAYOUT */
+.modal{
+    /* position bằng fixed chiếm hết màm hình */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.4);
+   
+}
+.modal__body{
+    width: 400px;
+    height: 450px;
+   margin: auto;
+   background-color: var(--white-color);
+   z-index: 1;
+   border-radius: 5px;
+  
+}
+
+/* quay trở lại, đăng ký */
+.btn{
+height: 30px;
+min-width: 100px;
+text-decoration: none;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+padding: 4px;
+outline: none;
+cursor: pointer;
+color: var(--text-color);
+}
+.btn--comback{
+    background-color: #fff;
+    margin-right: 8px;
+}
+.btn.btn--normal:hover{
+background-color: rgba(0, 0, 0, 0.07);
+}
+.btn.btn--primary{
+    background-color: var(--primary-color);
+    color: var(--white-color);
+
+}
+
+.btn--size-s{
+    height: 30px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:  0 12px;
+ 
+}

@@ -1,0 +1,367 @@
+/*CSS NHŨNG THÀNH PHẦN RIÊNG*/
+header{
+    height: 120px;
+    /* CSS chuyển màu từ đậm sang nhạt */
+    background-image:linear-gradient(0, #fe6433, #f53e2d) ;
+
+}
+.header__navbar{
+  display: flex;  
+  justify-content: space-between;
+}
+.header__navbar-list{
+    list-style: none;
+    margin-top: 4px;
+}
+.header__navbar-item{
+    /* css đẩy khoảng cách giữa các chứ */
+   margin-left: 8px;
+  margin-right: 8px;
+  position: relative;
+  min-height: 26px;
+}
+.header__navbar-item, 
+.header__navbar-item-link{
+    /* css nằm trên một hàng */
+    display: inline-block;
+    font-size: 15px;
+/* lấy biến đã đặt bên base.css */
+    color: var(--white-color);
+    /* bỏ dấu gạch chân thẻ a */
+    text-decoration: none;
+    /* css độ dày của chữ */
+    font-weight: 300;
+}
+/* hiệu ứng khi di chuột vào */
+.header__navbar-item:hover, 
+.header__navbar-item-link:hover,
+.header__navbar-icon-link:hover
+{
+color: rgba(255,255,255,0.7);
+cursor: pointer;
+}
+/* tạo độ dày cho chữ */
+.header__navbar-item--bold{
+    font-weight: 600;
+}
+/* tạo dấu gạch phân cách giữa các thẻ li */
+.header__navbar-item--separate::after{
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 2px solid #fb9086;
+    height: 14px;
+    right: -10px;
+    top: 50%;
+    /* là trừ 50% kích thước chiều cao của .header__navbar-item--separate */
+    transform: translateY(-50%);
+}
+.header__navbar-icon-link{
+    color: var(--white-color);
+    text-decoration: none;
+}
+/* căn giữa icon */
+.header__navbar-item, 
+.header__navbar-item-link,
+.header__navbar-icon-link
+{
+    display: inline-flex;
+    align-items: center;
+   
+}
+/* chỉnh kích thước icon */
+.header__navbar-icon{
+    font-size: 18px;
+    margin: 0 4px;
+}
+
+.header__navbar-icon-title--no-poiter{
+    /* tắt hiệu úng bàn tay khi di chuyển vào chữ kết nối */
+    cursor: text;
+    /* ghi đè thuộc tính color lên hover tahnhf màu trắng để di chuột vào k còn mờ đi */
+    color: var(--white-color);
+}
+
+
+/*header QR code  */
+.header__QR{
+background-color: var(--white-color);
+width: 186px;
+position: absolute;
+left: 0;
+top:120%;
+padding: 4px;
+/* bo góc */
+border-radius: 2px;
+/*  ẩn phần QR code đi*/
+display: none;
+}
+.header__navbar-item--has-QR:hover .header__QR{
+    /* Thuộc tính CSS được viết ở trong này sẽ đc upline vào .header__QR trong trường hợp .header__navbar-item--has-QR được hover vào */
+    /* trong trường hợp này .header__QR là con của .header__navbar-item--has-QR */
+display: block;
+animation: fadeIn ease-in 0.3s ;
+}
+/* tạo cầu nối để khi di chuyển vào QR code k bị mất đi */
+.header__QR::before{
+   content: "";
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 100%;
+    height: 20px;
+    display: block;
+
+
+}
+.header__QR-img{
+    /* css  để nằm gọn trong phần qr header */
+width: 100%;
+
+}
+.header__QR-apps{
+display: flex;
+justify-content: space-between;
+}
+.header__QR-download-img{
+height: 17px;
+}
+.header__QR-link{
+   margin-left:0 11px;
+
+}
+
+/* HEADER NOTIFYCATION */
+.header__notifi{
+position: absolute;
+top: 118%;
+width: 300px;
+background-color: var(--white-color);
+right: 0;
+border: #756f6e 1px solid;
+cursor: default;
+transform-origin: calc(100%-20%) top;
+animation: headerNotifyGrowth ease-in 0.2s;
+display: none;
+will-change:opacity,transfrom ;
+/* nói cho trình duyệt biết cái thuộc tính gì, animation gì sẽ thay đổi ở dối thượng này   */
+
+/*hỗ trợ animation cho các trình duyệt */
+
+/* -webkit-animation: headerNotifyGrowth ease-in 0.2s;  
+-ms-animation: headerNotifyGrowth ease-in 0.2s;
+-o-animation:headerNotifyGrowth ease-in 0.2s;
+-moz-animation: headerNotifyGrowth ease-in 0.2s; */
+}
+
+/* tạo mũi tên sổ lên ở mục thông báo */
+.header__notifi::before{
+content: "";
+border-width: 20px 30px ;
+border-style:  solid;
+/* boder color là chỉnh màu cho 4 hướng của hình. tránparent là màu trong suốt */
+border-color: transparent transparent var(--white-color) transparent;
+position: absolute;
+right: 1px;
+top:-30px ;
+}
+/* tạo cầu nối để di chuyển chéo k bị ẩn đi */
+.header__notifi::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    right: 0;
+    top: -15px;
+    background-color:transparent ;
+
+
+
+
+}
+
+.header__navbar-item--has-notify:hover .header__notifi{
+    display: block;
+
+
+}
+
+.header__notifi-header{
+    height: 40px;
+    background-color: white;
+
+}
+
+.header__notifi-header h3{
+color: #d3d3d3;
+margin: 0;
+font-weight: 400;
+font-size: 16px;
+line-height: 40px;
+margin: 0 0 0 12px;
+/* cursor bằng text cho phép copyy hiển thị con trot chuột */
+cursor: text;
+/*user-select: none Không cho phép copy  */
+user-select: none;
+}
+.header__notifi-list{
+padding-left: 0;
+
+
+
+}
+.header__notifi-item{
+display: flex;
+
+}
+
+.header__notifi-item:hover{
+background-color: #f7f7f7;
+}
+
+.header__notifi-item--viewed{
+ background-color:rgb(238, 77, 45, 0.08)
+}
+
+.header__notifi-link{
+display: flex;
+padding:12px ;
+width: 100%;
+text-decoration: none;
+
+}
+.header__notifi-img{
+width: 48px;
+
+}
+.header__notifi-info{
+    margin-left: 12px;
+
+}
+.header__notifi-name{
+display: block;
+color: rgb(47, 42, 42);
+font-size: 14px;
+font-weight: 400;
+line-height:16px ;
+}
+.header__notifi-descriotion{
+display: block;
+color:#756f6e ;
+font-size: 11px;
+margin-top: 4px;
+}
+
+.header__notifi-footer{
+    display: flex;
+   
+}
+
+.header__notifi-footer-btn{
+text-decoration: none;
+padding: 4px 48px;
+color: var(--black-color);
+margin: auto;
+font-size: 16px;
+font-weight: 40000;
+}
+
+/* authen modal */
+
+
+.auth-form__container{
+   padding: 0 32px; 
+}
+
+.auth-form__header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.auth-form__heading{
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--black-color);
+
+}
+
+.auth-form__switch-btn{
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 500;
+    cursor: pointer;
+
+
+}
+
+.auth-form__form{
+    margin-top: 16px;
+}
+
+.auth-form__input{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 16px;
+    padding: 0 12px;
+    font-size: 14px;
+    border: 1px solid var(--boder-color);
+    border-radius: 2px;
+    /* loại bỏ outline mặc định của thẻ input */
+    outline: none;
+}
+
+/* tạo một lớp giả khi click vào input sẽ có boder đậm lên */
+.auth-form__input:focus{
+border-color:#888 ;
+}
+
+.auth-form__aside{
+    margin-top: 18px;
+}
+
+.auth-form__policy-text{
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    padding: 0 12px;
+}
+
+.auth-form__text-link{
+    text-decoration: none;
+    color: #f53e2d;
+}
+/* quay trở lại, đăng ký */
+.auth-form__controls{
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.auth-form__socials{
+    background-color: #f5f5f5;
+    margin-top: 16px;
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.auth-form__socials-icon{
+    font-size: 30px;
+    margin-right: 18px;
+   
+}
+
+.auth-form__socials--facebook{
+    color: var(--white-color);
+background-color: #3a5a98;
+
+}
+
+.auth-form__socials--facebook
+.auth-form__socials-icon{
+    color: white;
+}
